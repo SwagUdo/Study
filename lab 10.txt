@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	int oper, start, end, answer, trys, wins;
+	wins = 0;
+	trys = 5;
+	start = 0;
+	end = 10;
+	string red, green;
+	red = "\x1b[91m";
+	green = "\x1b[92m";
+
+    	cout << "Угадай число от 0 до 10\n";
+	cout << "[1] Начать игру\n";
+	cout << "[0] Выйти.\n";
+
+	cin >> oper;
+
+	if (oper == 1) {
+	    
+	    while ((wins < 3) and (trys > 0)){
+	        
+	        int A = rand() % (end - start + 1) + start;
+	        cout << "[+] Угаданных чисел : [" << wins << " / 3]\n";
+		cout << "Кол-во попыток:" << trys << endl;
+		cout << "Введите число:";
+		cin >>answer;
+			
+		if ((answer < 0) or (answer > 11)){
+                cout << "Неправильное значение!\n";
+		}
+			
+            else if (answer != A){
+                --trys;
+            }
+            
+            else if (answer = A){
+                ++wins;
+            }
+        }
+            
+	if (wins == 3) {
+	    cout << green << "Ты победил";
+        }
+            
+        if (trys == 0) {
+            cout << red << "Ты проиграл";
+        }
+        
+	    else;
+	}
+	return 	0;
+}
